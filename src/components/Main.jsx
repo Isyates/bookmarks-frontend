@@ -5,7 +5,7 @@ import Edit from '../Pages/Edit'
 
 export default function Main () {
 
-const [bookmarks, setBookmarks] = useState ()
+const [bookmarks, setBookmarks] = useState (null)
 
 const URL = "http://localhost:3001/bookmarks"
 
@@ -24,9 +24,16 @@ const createBookmarks = async bookmark => {
     getBookmarks()
 }
 
-// const updateBookmarks = async (bookmark, id) => {
-//     await fetch(URL)
-// }
+const updateBookmarks = async (bookmark, id) => {
+    await fetch(URL + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bookmark)
+    })
+    getBookmarks()
+}
 
 useEffect(()=> {
     getBookmarks()
