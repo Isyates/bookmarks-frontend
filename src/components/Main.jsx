@@ -41,7 +41,10 @@ useEffect(()=> {
     return (
         <main>
             <Routes>
-                <Route path='/' element={<Index bookmarks={bookmarks} createBookmarks={createBookmarks}/>}/>
+                <Route path='/' element={<Index bookmarks={bookmarks} 
+                createBookmarks={createBookmarks} />}
+                />
+                 <Route path='/bookmarks/:id' element={<Edit updateBookmarks={updateBookmarks} />} />
             </Routes>
         </main>
 )
