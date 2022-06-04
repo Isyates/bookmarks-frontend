@@ -22,13 +22,13 @@ export default function Index ({bookmarks, createBookmarks, updateBookmarks}) {
                 url: ""
             })
         }
-        const loaded = () => bookmarks.map (bookmarks => (
-            <div key={bookmarks._id}
+        const loaded = () => bookmarks.map (bookmark => (
+            <div key={bookmark._id}
             className="bookmark">
-                <a href={`${bookmarks.url}`}><h1>{bookmarks.title}</h1></a>
+                <a href={`${bookmark.url}`}><h1>{bookmark.title}</h1></a>
                 <button onClick>delete</button>
 
-                <Link to={`/bookmarks/${bookmarks._id}`}><button>edit</button></Link>
+                <Link to={`/bookmarks/${bookmark._id}`}><button>edit</button></Link>
                 
 
             </div>
