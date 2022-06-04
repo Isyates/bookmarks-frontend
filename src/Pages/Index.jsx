@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import {Link} from 'react-router-dom'
 import Show from '../components/Show'
 
 export default function Index ({bookmarks, createBookmarks, updateBookmarks, deleteBookmarks}) {
