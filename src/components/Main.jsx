@@ -7,7 +7,7 @@ export default function Main () {
 
 const [bookmarks, setBookmarks] = useState (null)
 
-const URL = "http://localhost:3001/bookmarks"
+const URL = "http://localhost:3001/bookmarks/"
 
 const getBookmarks = async () => {
     const data = await fetch(URL).then(res => res.json())
