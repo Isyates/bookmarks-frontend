@@ -35,6 +35,13 @@ const updateBookmarks = async (bookmark, id) => {
     getBookmarks()
 }
 
+const deleteBookmarks = async id => {
+    await fetch(URL + id, {method: 'DELETE'})
+    getBookmarks()
+  }
+
+  
+
 useEffect(()=> {
     getBookmarks()
 },[])
@@ -42,7 +49,7 @@ useEffect(()=> {
         <main>
             <Routes>
                 <Route path='/' element={<Index bookmarks={bookmarks} 
-                createBookmarks={createBookmarks} />}
+                createBookmarks={createBookmarks} deleteBookmarks={deleteBookmarks}/>}
                 />
                  <Route path='/bookmarks/:id' element={<Edit
                   updateBookmarks={updateBookmarks} 

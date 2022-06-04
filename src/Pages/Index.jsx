@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import {Link} from 'react-router-dom'
+import Show from '../components/Show'
 
-export default function Index ({bookmarks, createBookmarks, updateBookmarks}) {
+export default function Index ({bookmarks, createBookmarks, updateBookmarks, deleteBookmarks}) {
 
     const [form, setForm] = useState ({
         title: '',
@@ -22,16 +23,11 @@ export default function Index ({bookmarks, createBookmarks, updateBookmarks}) {
                 url: ""
             })
         }
+
+       
+
         const loaded = () => bookmarks.map (bookmark => (
-            <div key={bookmark._id}
-            className="bookmark">
-                <a href={`${bookmark.url}`}><h1>{bookmark.title}</h1></a>
-                <button onClick>delete</button>
-
-                <Link to={`/bookmarks/${bookmark._id}`}><button>edit</button></Link>
-                
-
-            </div>
+            <Show key={bookmark._id} bookmark={bookmark} deleteBookmarks={deleteBookmarks}/>
         ))
     
     const loading = () => <h1>Loading...</h1>
