@@ -2,7 +2,7 @@ import {Routes, Route} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import Index from '../Pages/Index'
 import Edit from '../Pages/Edit'
-
+import Header from '../components/Header'
 export default function Main () {
 
 const [bookmarks, setBookmarks] = useState (null)
@@ -47,7 +47,9 @@ useEffect(()=> {
 },[])
     return (
         <main>
+            <Header />
             <Routes>
+
                 <Route path='/' element={<Index bookmarks={bookmarks} 
                 createBookmarks={createBookmarks} deleteBookmarks={deleteBookmarks}/>}
                 />
