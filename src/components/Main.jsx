@@ -2,7 +2,7 @@ import {Routes, Route} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import Index from '../Pages/Index'
 import Edit from '../Pages/Edit'
-
+import Header from '../components/Header'
 export default function Main () {
 
 const [bookmarks, setBookmarks] = useState (null)
@@ -35,14 +35,23 @@ const updateBookmarks = async (bookmark, id) => {
     getBookmarks()
 }
 
+const deleteBookmarks = async id => {
+    await fetch(URL + id, {method: 'DELETE'})
+    getBookmarks()
+  }
+
+  
+
 useEffect(()=> {
     getBookmarks()
 },[])
     return (
         <main>
+            <Header />
             <Routes>
+
                 <Route path='/' element={<Index bookmarks={bookmarks} 
-                createBookmarks={createBookmarks} />}
+                createBookmarks={createBookmarks} deleteBookmarks={deleteBookmarks}/>}
                 />
                  <Route path='/bookmarks/:id' element={<Edit
                   updateBookmarks={updateBookmarks} 

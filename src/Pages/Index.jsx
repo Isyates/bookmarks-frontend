@@ -1,7 +1,25 @@
 import {useState} from 'react'
-import {Link} from 'react-router-dom'
+import Show from '../components/Show'
+import styled from 'styled-components'
 
-export default function Index ({bookmarks, createBookmarks, updateBookmarks}) {
+const StyledBtn = styled.button`
+background-color: green;
+border: black2px;
+border-radius: 8px;
+margin: 2px;
+color: white;
+padding: 2px 15px ;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: px;
+
+`
+const StyledStn = styled.section`
+
+background: url(https://cdn.pixabay.com/photo/2017/07/22/11/09/social-media-2528410_960_720.jpg);
+`
+export default function Index ({bookmarks, createBookmarks, updateBookmarks, deleteBookmarks}) {
 
     const [form, setForm] = useState ({
         title: '',
@@ -22,22 +40,17 @@ export default function Index ({bookmarks, createBookmarks, updateBookmarks}) {
                 url: ""
             })
         }
+
+       
+
         const loaded = () => bookmarks.map (bookmark => (
-            <div key={bookmark._id}
-            className="bookmark">
-                <a href={`${bookmark.url}`}><h1>{bookmark.title}</h1></a>
-                <button onClick>delete</button>
-
-                <Link to={`/bookmarks/${bookmark._id}`}><button>edit</button></Link>
-                
-
-            </div>
+            <Show key={bookmark._id} bookmark={bookmark} deleteBookmarks={deleteBookmarks}/>
         ))
     
     const loading = () => <h1>Loading...</h1>
 
     return (
-        <section>
+        <StyledStn>
             <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
@@ -53,9 +66,9 @@ export default function Index ({bookmarks, createBookmarks, updateBookmarks}) {
                     value={form.url}
                     onChange={handleChange}
                 />
-                <button type="submit">Add bookmark</button>
+                <StyledBtn type="submit">Add bookmark</StyledBtn>
             </form>
             {bookmarks ? loaded() : loading()}
-        </section>
+        </StyledStn>
     )
 }
