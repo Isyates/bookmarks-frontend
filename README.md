@@ -1,3 +1,38 @@
+Bookmarks Lab
+
+
+Contributors:
+Isiah Yates
+Dominik Conway
+Joshua Goss
+Hieu Nguyen
+
+
+
+Routes
+Layout:
+| Routes   |  Links to     |
+|----------|:-------------:|
+| '/'      |  Index page |
+| '/bookmarks/:id' |    Edit page  |
+
+Component  List:
+
+Header
+Main
+Show
+
+
+
+ <img width="850" alt="image" src="https://i.imgur.com/0gXW6aQ.png">
+
+
+Link to Backend Repo: https://git.generalassemb.ly/isyates/bookmarkd-backend
+
+
+Link to App: https://629bf7b661a99d5d861d866a--serene-chimera-e10608.netlify.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
