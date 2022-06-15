@@ -7,7 +7,7 @@ export default function Main () {
 
 const [bookmarks, setBookmarks] = useState (null)
 
-const URL = "https://bookmarkdbackendiy.herokuapp.com/"
+const URL = "https://bookmarkdbackendiy.herokuapp.com/bookmarks"
 
 const getBookmarks = async () => {
     const data = await fetch(URL).then(res => res.json())
